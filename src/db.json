@@ -1,0 +1,42 @@
+{
+    "food": [
+      {
+        "title": "Kathiyavadi Dish",
+        "foodtype":"Kathiyavadi",
+        "id":1,
+        "img":"food.png"
+      },
+      {
+        "title": "Burger",
+        "foodtype":"Italian",
+        "id":2,
+        "img":"food2.png"
+      },
+      {
+        "title": "Pizza",
+        "foodtype":"Italian",
+        "id":3,
+        "img":"pizza.jpg"
+      },
+      {
+        "title": "Meggie",
+        "foodtype":"Chinese",
+        "id":4,
+        "img":"meggie.jpeg"
+      },
+      {
+        "title": "French Fries",
+        "foodtype":"Italian",
+        "id":5,
+        "img":"french.jpg"
+      },
+      {
+        "title": "Dhosa",
+        "foodtype":"South Indian",
+        "id":6,
+        "img":"dhosa].jpg"
+      }
+    ]
+
+    
+  }
