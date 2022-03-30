@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { Link, useLocation, useParams } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { SidebarData, SidebarData1 } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { searchProducts, setProducts } from "../redux/actions/productAction";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Breadcrumb, Nav } from "react-bootstrap";
 
 function Navbar() {
   const [searchInput, setSearchInput] = useState("");
@@ -21,7 +23,7 @@ function Navbar() {
 
   useEffect(() => {
     location.pathname === "/productlist" ||
-    location.pathname === `/productdetails/${productId}`
+    location.pathname === "productlist/productdetails/"
       ? setShowSearch(true)
       : setShowSearch(false);
   }, [location.pathname]);
@@ -39,9 +41,11 @@ function Navbar() {
   const handleSubmit = () => {
     dispatch(searchProducts(searchInput, foodData));
   };
-
+const navigate=useNavigate();
+const token=localStorage.getItem("token");
   return (
     <>
+    
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
@@ -54,7 +58,19 @@ function Navbar() {
                   <AiIcons.AiOutlineClose />
                 </Link>
               </li>
-
+            {
+              token? <>
+                   {SidebarData1.map((item, index) => {
+                return (
+                  <li key={index} className={item.cName}>
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+              </> :<>
               {SidebarData.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
@@ -65,6 +81,9 @@ function Navbar() {
                   </li>
                 );
               })}
+              </>
+            }
+         
             </ul>
           </nav>
 
@@ -98,10 +117,10 @@ function Navbar() {
             </div>
           )}
         
-          <h2
+          <h2 
              style={{ color: "white", marginLeft:"40%",marginTop: "0.5rem",position:"absolute"}}
           >
-            Food Shop
+            Foodie Zone
           </h2>
           
 
@@ -114,6 +133,7 @@ function Navbar() {
             src={require("./assets/logoo.jpg")}
             width="50px"
             height="50px"
+            onClick={()=>navigate("/")}
             alt=""
           />
         </div>

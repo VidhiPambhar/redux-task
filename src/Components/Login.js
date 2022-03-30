@@ -24,7 +24,7 @@ const Login = () => {
         .post("/Login/Login", details)
         .then((response) => {
           localStorage.setItem(
-            "Token",
+            "token",
             JSON.stringify(response.data.data.tokenData)
           );
 

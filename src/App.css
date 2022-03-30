@@ -55,3 +55,36 @@
   pointer-events: none;
   color: #aaa;
 }
+.breadcrumb {
+  margin-top:1rem;
+  padding: 25px;
+  font-size: 16px;
+  color: #aaa !important;
+  letter-spacing: 2px;
+  border-radius: 5px !important
+}
+breadcrumb a {
+  text-decoration: none !important;
+  color: blue !important
+}
+.first span {
+  color: black
+}
+
+.breadcrumb {
+  letter-spacing: 0px !important;
+  padding: 16px;
+  padding-left: 6px !important;
+  padding-right: 6px !important
+}
+
+.breadcrumb>* div {
+  max-width: 60px
+}
+@media (max-width: 976px) {
+
+  .breadcrumb {
+      letter-spacing: 0px !important;
+      padding: 26px
+  }
+}

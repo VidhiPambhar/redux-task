@@ -18,7 +18,7 @@ export const searchProducts = (searchData, data) => {
     return {
         type: ActionTypes.SEARCH_PRODUCT,
         payload: {
-            updatedData: searchData === "" ? data : data.filter(item => item.foodtype.toLowerCase().includes(searchData.toLowerCase()))
+            updatedData: searchData === "" ? data : data.filter(item => item.title.toLowerCase().includes(searchData.toLowerCase()))
         },
     }
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Breadcrumb } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom';
-import Navbar from './Navbar'
 
 function BreadCrumb() {
     const location = useLocation();
@@ -11,18 +10,20 @@ function BreadCrumb() {
       const capatilize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
       return (
         <div>
-          <Breadcrumb style={{marginLeft:"20%"}} >
-            {pathnames.length > 0 ? (
-              <Breadcrumb.Item>
+          <nav aria-label="breadcrumb " class="first d-md-flex">
+          <Breadcrumb  style={{marginLeft:"20%"}} >
+             {pathnames.length > 0 ? (
+              <Breadcrumb.Item  >
                 <Link to="/">Home</Link>
               </Breadcrumb.Item>
             ) : (
               <Breadcrumb.Item>Home</Breadcrumb.Item>
-            )}
+            )} 
             {pathnames.map((name, index) => {
               const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
               const isLast = index === pathnames.length - 1;
               return isLast ? (
+                
                 <Breadcrumb.Item>{capatilize(name)}</Breadcrumb.Item>
               ) : (
                 <Breadcrumb.Item>
@@ -31,6 +32,7 @@ function BreadCrumb() {
               );
             })}
           </Breadcrumb>
+          </nav>  
         </div>
       );
     };

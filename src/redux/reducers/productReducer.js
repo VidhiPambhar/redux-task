@@ -8,7 +8,7 @@ const initialState = {
 export const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case ActionTypes.SET_PRODUCT:
-            return {...state, products: action.payload };
+            return {...state, products: action.payload,filteredFoodData : action.payload};
             // return state;
 
         case ActionTypes.SEARCH_PRODUCT:

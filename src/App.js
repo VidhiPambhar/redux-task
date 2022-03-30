@@ -39,6 +39,7 @@ import Home from "./Components/Home"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "./Components/Login";
 import AboutUs from "./Components/AboutUs"
+import Logout from './Components/Logout';
 import ContactUs from "./Components/ContactUs"
 import ProductList from './Components/ProductList';
 import ProductDetails from './Components/ProductDetails';
@@ -58,7 +59,9 @@ function App() {
            <Route exact path="/contact" element={<ContactUs/>} />
           <Route exact path="/productlist" element={<ProductList/>} />
 
-          <Route exact path="/productdetails/:productId" element={<ProductDetails />} />
+          <Route exact path="/productlist/productdetails/:productId" element={<ProductDetails />} />
+          <Route exact path="/logout" element={<Logout/>} />
+
         </Routes>
       </Router>
     </>

@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use((config) => {
     config.url !== "/Login/LogOutLog"
   )
     config.headers["Authorization"] =
-      "Bearer " + JSON.parse(localStorage.getItem("Token"));
+      "Bearer " + JSON.parse(localStorage.getItem("token"));
   return config;
 });
 

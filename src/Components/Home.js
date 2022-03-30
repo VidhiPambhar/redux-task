@@ -2,11 +2,12 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import background from "./assets/home.png";
+import { Button } from 'bootstrap';
 function Home() {
   
   return (
     <>
-    <section style={{marginTop:"8rem"}} className='d-flex align-items-center'>
+    <section style={{marginTop:"6rem",marginBottom:"3rem"}} className='d-flex align-items-center'>
       <div className='container-fluid nav_bg'>
         <div className='row'>
           <div className='col-10 mx-auto'>
