@@ -11,10 +11,12 @@ const Logout = () => {
 
   const logout = (e) => {
     e.preventDefault();
+ 
     const removeData = {
       empno: location.state,
       token: `bearer  ${JSON.parse(localStorage.getItem("token"))}`,
     };
+    
     axiosInstance
       .post("http://103.138.234.244:9067/api/Login/LogOutLog", removeData)
       .then(() => {
@@ -22,25 +24,21 @@ const Logout = () => {
       })
       .catch((error) => console.log(error));
 
-    // Swal.fire({
-    //   position: "center",
-    //   icon: "success",
-    //   title: "Successfully Logout",
-    //   showConfirmButton: false,
-    //   timer: 1500,
-    // });
-    Navigate("/login");
-  };
+  
+      Navigate("/login");
+    };
+    
 
   return (
     <>
-      <div className="container text-center mt-5">
-        <Button onClick={logout} type="submit" size="lg" variant="primary">
+      <div className="shadow-lg p-3 mb-6 bg-white rounded" style={{width:"40%",marginLeft:"35%",marginTop:"3rem"}}>
+     <h2 style={{marginLeft:"2rem"}}>Are You sure for logout?</h2>
+        <Button onClick={logout}  type="submit" size="lg" variant="primary" style={{marginLeft:"10rem",marginTop:"1rem"}}>
           Logout
         </Button>
         <br />
         <br />
-        <h4>Go to Login Page</h4>
+       
       </div>
     </>
   );
