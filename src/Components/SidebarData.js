@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-const token=localStorage.getItem("token");
+
 export const SidebarData = [
   
   {
@@ -29,18 +29,11 @@ export const SidebarData = [
     path: '/about',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
-  },{
-    title:  'Login',
-    path: '/login',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
-  
-  
+  }
 ];
+
 export const SidebarData1 = [
-  
-  {
+    {
     title: 'Home',
     path: '/',
     icon: <AiIcons.AiFillHome />,
@@ -64,12 +57,13 @@ export const SidebarData1 = [
     path: '/about',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
-  },{
-    title: "Logout",
-    path: '/logout',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
+   }
+   //,{
+  //   title: "Logout",
+  //   path: '/login',
+  //   icon: <IoIcons.IoIosPaper />,
+  //   cName: 'nav-text',
+  // },
   
   
 ];

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { productReducer } from "../redux/reducers/productReducer";
 import { setProducts } from "../redux/actions/productAction";
 import { Link } from "react-router-dom";
@@ -48,7 +48,8 @@ function ProductList() {
     fetchProducts();
   }, []);
 
-  console.log(token);
+  // console.log(token);
+
   const handleSort = (param, dataOrder) => {
     const sortData = param.sort((a, b) => {
       var titleA = a.title.toUpperCase();
@@ -69,40 +70,27 @@ function ProductList() {
           return 1;
         }
       }
-
       return 0;
     });
     dispatch(setProducts(sortData));
     setData(sortData);
     setFlag(!flag);
   };
-
-  // const handleSort = (param) => {
-  //   const sortData = param.sort(function (a, b) {
-  //     if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
-  //     if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
-  //     return 0;
-  //   });
-  //   console.log(sortData);
-  //   dispatch(setProducts(sortData));
-  //   setData(sortData);
-  //   setFlag(!flag);
-  // };
   return (
     <div>
       <Container>
-        <div style={{ marginTop: "0.5rem", marginLeft: "90%", cursor: "pointer" }}>
-        <AiOutlineSortAscending
-          size={40}
-          onClick={() => handleSort(data, "asc")}
-          
-        />
-        <AiOutlineSortDescending
-          size={40}
-        
-          onClick={() => handleSort(data, "dsc")}
-        />
-</div>
+        <div
+          style={{ marginTop: "0.5rem", marginLeft: "90%", cursor: "pointer" }}
+        >
+          <AiOutlineSortAscending
+            size={40}
+            onClick={() => handleSort(data, "asc")}
+          />
+          <AiOutlineSortDescending
+            size={40}
+            onClick={() => handleSort(data, "dsc")}
+          />
+        </div>
         <Row className="justify-content-md-center">
           {data && data.length ? (
             data.map((item) => (

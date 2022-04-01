@@ -11,6 +11,7 @@ const Logout = () => {
 
   const logout = (e) => {
     e.preventDefault();
+    alert("Logout")
  
     const removeData = {
       empno: location.state,
@@ -22,9 +23,7 @@ const Logout = () => {
       .then(() => {
         localStorage.removeItem("token");
       })
-      .catch((error) => console.log(error));
-
-  
+      .catch((error) => console.log(error));  
       Navigate("/login");
     };
     
