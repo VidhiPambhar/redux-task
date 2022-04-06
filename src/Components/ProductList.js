@@ -1,4 +1,6 @@
 import axios from "axios";
+import "animate.css";
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
@@ -18,6 +20,7 @@ function ProductList() {
   const food = useSelector((state) => state.allProducts.filteredFoodData);
   const [data, setData] = useState([]);
   const [flag, setFlag] = useState(false);
+  const[productFlag,setProductFlag]=useState(false);
   const dispatch = useDispatch();
   console.log("data", data);
 
@@ -25,10 +28,22 @@ function ProductList() {
   useEffect(() => {
     if (!token) {
       Swal.fire({
-        text: "You have to login first",
+        title: "Login Required!",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "yes, go for Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+          setProductFlag(false);
+        }
       });
-      navigate("/login");
+    }else{
+      setProductFlag(true);
+     
     }
+    
   });
   useEffect(() => {
     setData(food);
@@ -83,16 +98,17 @@ function ProductList() {
           style={{ marginTop: "0.5rem", marginLeft: "90%", cursor: "pointer" }}
         >
           <AiOutlineSortAscending
-            size={40}
+            size={40} 
             onClick={() => handleSort(data, "asc")}
           />
           <AiOutlineSortDescending
             size={40}
             onClick={() => handleSort(data, "dsc")}
           />
-        </div>
+        </div> 
+        
         <Row className="justify-content-md-center">
-          {data && data.length ? (
+          { productFlag && data && data.length ? (
             data.map((item) => (
               <Col>
                 <Card

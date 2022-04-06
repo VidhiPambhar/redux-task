@@ -19,6 +19,7 @@ export const searchProducts = (searchData, data) => {
         type: ActionTypes.SEARCH_PRODUCT,
         payload: {
             updatedData: searchData === "" ? data : data.filter(item => item.title.toLowerCase().includes(searchData.toLowerCase()))
+            
         },
     }
 }

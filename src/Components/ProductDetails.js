@@ -34,7 +34,7 @@ setData(res.data);
 
   };
   
-    
+    console.log("img",img);
 
   return (
     
@@ -44,8 +44,8 @@ setData(res.data);
         <Container>
           <Row className="justify-content-md-center">
        
-                <Col>
-                  <Card
+               {   name &&  img && desc && <Col>
+               <Card
                     style={{
                       width: "100%",
                       paddingLeft: "10%",
@@ -56,17 +56,17 @@ setData(res.data);
                     <div style={{ display: "flex", justifyContent: "center" }}>
                       <h1 style={{ marginTop: "1rem" }}>{name}</h1>
                     </div>
-                    {/* <Card.Img variant="top" />
+                    <Card.Img variant="top" />
                     <img
-                      src={require(`.././Components/assets/${img}`)}
+                      src={require(`../Components/assets/${img}`)}
                       alt=""
-                    /> */}
+                    />
 
                     <Card.Body>
                       <Card.Text>{desc}</Card.Text>
                     </Card.Body>
                   </Card>
-                </Col>
+                </Col>}
           </Row>
         </Container>
       </div>

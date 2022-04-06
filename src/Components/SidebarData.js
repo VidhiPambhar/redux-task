@@ -2,6 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import { FiUserPlus } from 'react-icons/fi';
 
 export const SidebarData = [
   
@@ -28,6 +29,12 @@ export const SidebarData = [
     title: 'AboutUs',
     path: '/about',
     icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Login',
+    path: '/login',
+    icon: <FiUserPlus/>,
     cName: 'nav-text'
   }
 ];

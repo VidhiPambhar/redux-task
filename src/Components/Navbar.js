@@ -144,7 +144,8 @@ function Navbar() {
                   placeholder="Search the products"
                   value={searchInput}
                   onChange={handleSearchChange}
-                />
+
+/>
                 <button
                   class="btn btn-primary"
                   type="submit"
