@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { searchProducts } from "../redux/actions/productAction";
 import * as FaIcons from "react-icons/fa";
-import {MdFavoriteBorder }from "react-icons/md"
+import {MdFavoriteBorder, MdOutlineFavorite, MdOutlineFavoriteBorder }from "react-icons/md"
 import nodata from "../Components/assets/no-result.gif";
 import {
   AiOutlineSortAscending,
@@ -219,10 +219,9 @@ console.log(food);
                       </Link>
                     </Button>
 
-                    
-                    <MdFavoriteBorder style={{marginLeft:"6rem"}}  size={25}/>
-            
-
+           
+                    <MdOutlineFavoriteBorder style={{marginLeft:"6rem",cursor:"pointer"}}  size={25}/>
+                  
                   </Card.Body>
 
                 </Card>
