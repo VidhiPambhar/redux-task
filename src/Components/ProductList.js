@@ -27,7 +27,7 @@ function ProductList() {
   const [data, setData] = useState([]);
   const [flag, setFlag] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-const[isHidden,setIsHidden]=useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [productFlag, setProductFlag] = useState(false);
   const dispatch = useDispatch();
   const foodData = useSelector((state) => state.allProducts.products);
@@ -71,6 +71,12 @@ const[isHidden,setIsHidden]=useState(false);
   }, []);
 
   useEffect(() => {
+    if(searchInput.length>0){
+      setIsHidden(true)
+    } 
+    else{
+      setIsHidden(false)
+    }
     searchInput === "" && dispatch(setProducts(foodData));
   }, [searchInput]);
 
@@ -154,19 +160,20 @@ console.log(food);
    >
      Search
    </button> */}
-   {isHidden&&(
+   {/* {isHidden&&(
 <div>
 {data &&
           data.map((item) => (
             <li style={{marginLeft:"35%" ,display:"inline-list-item",border:"1px solid black",borderRadius:"0.5rem",width:"30%",listStyle:"none",padding:"4px"}}  onClick={() => setSearchInput(item.title)}>{item.title}</li>
           ))}
   </div>
-  )}
-          {/* {!isHidden &&(
+  )} */}
+          {isHidden &&(
         <div>
-    {data && data.length ? (
-            data.map((item) => (
-              <li style={{display:"inline-list-item",border:"1px solid black",borderRadius:"0.5rem",width:"94%",listStyle:"none",padding:"4px"}} onClick={() => setSearchInput(item.title)}>{item.title}</li>
+           {data && data.length > 0 ? (
+                data.map((item) => (
+    
+              <li style={{marginLeft:"35%",display:"inline-list-item",border:"1px solid black",borderRadius:"0.5rem",width:"30%",listStyle:"none",padding:"4px"}} onClick={() => setSearchInput(item.title)}>{item.title}</li>
               ))
               ) : (
                 <div>
@@ -175,7 +182,7 @@ console.log(food);
               )}
         </div>
         )}
- */}
+
 
         <div
           style={{ marginTop: "0.5rem", marginLeft: "90%", cursor: "pointer" }}
