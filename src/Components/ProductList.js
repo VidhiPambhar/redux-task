@@ -1,6 +1,6 @@
 import axios from "axios";
 import "animate.css";
-
+import "../db.json";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
@@ -9,19 +9,28 @@ import { productReducer } from "../redux/reducers/productReducer";
 import { setProducts } from "../redux/actions/productAction";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { searchProducts } from "../redux/actions/productAction";
+import * as FaIcons from "react-icons/fa";
+import {MdFavoriteBorder }from "react-icons/md"
 import nodata from "../Components/assets/no-result.gif";
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
 } from "react-icons/ai";
+import SelectSearch from "react-select-search";
+import { Select } from "grommet";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 function ProductList() {
   const navigate = useNavigate();
 
   const food = useSelector((state) => state.allProducts.filteredFoodData);
   const [data, setData] = useState([]);
   const [flag, setFlag] = useState(false);
-  const[productFlag,setProductFlag]=useState(false);
+  const [searchInput, setSearchInput] = useState("");
+const[isHidden,setIsHidden]=useState(false);
+  const [productFlag, setProductFlag] = useState(false);
   const dispatch = useDispatch();
+  const foodData = useSelector((state) => state.allProducts.products);
   console.log("data", data);
 
   const token = localStorage.getItem("token");
@@ -39,11 +48,9 @@ function ProductList() {
           setProductFlag(false);
         }
       });
-    }else{
+    } else {
       setProductFlag(true);
-     
     }
-    
   });
   useEffect(() => {
     setData(food);
@@ -63,7 +70,10 @@ function ProductList() {
     fetchProducts();
   }, []);
 
-  // console.log(token);
+  useEffect(() => {
+    searchInput === "" && dispatch(setProducts(foodData));
+  }, [searchInput]);
+
 
   const handleSort = (param, dataOrder) => {
     const sortData = param.sort((a, b) => {
@@ -91,24 +101,98 @@ function ProductList() {
     setData(sortData);
     setFlag(!flag);
   };
+  const handleSearchChange = (e) => {
+    dispatch(searchProducts(searchInput, foodData));
+  };
+
+
+
+console.log(food);
+
   return (
     <div>
       <Container>
+        <div class="input-group" style={{ borderRadius: "3rem",width:"30%",marginLeft:"35%" }}>
+ 
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search the products"
+            value={searchInput}
+            onChange={(e) => {
+              handleSearchChange(e);
+              setSearchInput(e.target.value);
+            }}
+          />
+          <button
+            class="btn btn-primary"
+            type="submit"
+            onClick={handleSearchChange}
+          >
+             <FaIcons.FaSearchMinus />
+          </button>
+        </div>
+        {/* <SelectSearch
+      //  options=  {data &&
+      //     data.map((item) => (
+      //       <li  onClick={() => setSearchInput(item.title)}>{item.title}</li>
+      //     ))}
+        // filterOptions={food}
+        value=""
+        name="Workshop"
+        placeholder="Select items.."
+        search
+        onChange={(e)=>{
+          handleSearchChange(e);
+          setSearchInput(e.target.value);
+          }}
+     />    */}
+      {/* <button
+     class="btn btn-primary"
+     type="submit"
+     onClick={handleSearchChange}
+   >
+     Search
+   </button> */}
+   {isHidden&&(
+<div>
+{data &&
+          data.map((item) => (
+            <li style={{marginLeft:"35%" ,display:"inline-list-item",border:"1px solid black",borderRadius:"0.5rem",width:"30%",listStyle:"none",padding:"4px"}}  onClick={() => setSearchInput(item.title)}>{item.title}</li>
+          ))}
+  </div>
+  )}
+          {/* {!isHidden &&(
+        <div>
+    {data && data.length ? (
+            data.map((item) => (
+              <li style={{display:"inline-list-item",border:"1px solid black",borderRadius:"0.5rem",width:"94%",listStyle:"none",padding:"4px"}} onClick={() => setSearchInput(item.title)}>{item.title}</li>
+              ))
+              ) : (
+                <div>
+                 { console.log("no data")}
+                </div>
+              )}
+        </div>
+        )}
+ */}
+
         <div
           style={{ marginTop: "0.5rem", marginLeft: "90%", cursor: "pointer" }}
         >
           <AiOutlineSortAscending
-            size={40} 
+            size={40}
+    
             onClick={() => handleSort(data, "asc")}
           />
           <AiOutlineSortDescending
             size={40}
             onClick={() => handleSort(data, "dsc")}
           />
-        </div> 
-        
+        </div>
+
         <Row className="justify-content-md-center">
-          { productFlag && data && data.length ? (
+          {productFlag && data && data.length ? (
             data.map((item) => (
               <Col>
                 <Card
@@ -134,7 +218,13 @@ function ProductList() {
                         Click Here
                       </Link>
                     </Button>
+
+                    
+                    <MdFavoriteBorder style={{marginLeft:"6rem"}}  size={25}/>
+            
+
                   </Card.Body>
+
                 </Card>
               </Col>
             ))

@@ -35,6 +35,24 @@
         "foodtype":"South Indian",
         "id":6,
         "img":"dhosa].jpg"
+      },
+      {
+        "title": "Idli",
+        "foodtype":"South Indian",
+        "id":8,
+        "img":"idli.jpg"
+      },
+      {
+        "title": "Sev usal",
+        "foodtype":"South Indian",
+        "id":9,
+        "img":"sev.jpg"
+      },
+      {
+        "title": "Dry Manchurian",
+        "foodtype":"South Indian",
+        "id":10,
+        "img":"dry.jpg"
       }
     ]
 

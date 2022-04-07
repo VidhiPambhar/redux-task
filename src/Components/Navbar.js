@@ -127,7 +127,7 @@ function Navbar() {
             </ul>
           </nav>
 
-          {showSearch && (
+          {/* {showSearch && (
             <div
               className="form-group has-search"
               style={{
@@ -154,8 +154,13 @@ function Navbar() {
                   <FaIcons.FaSearchMinus />
                 </button>
               </div>
+             
+
+                   <div>
+        
+        </div>
             </div>
-          )}
+          )} */}
 
           <h2
             style={{

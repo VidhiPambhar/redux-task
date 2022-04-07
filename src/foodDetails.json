@@ -29,6 +29,24 @@
       "desc": "The vibrant and rich Gujarati cuisine in general consists of 4 regional cuisines- Kathiyawadi, Kutchi, Surti and Amdavadi. Each of these regions has a distinctive flavours associated with its local food that brings their own uniqueness to the Gujarati cuisine.  Each dish has a blend of flavours – sweet, sour, spicy. Despite having a coastline with abundance seafood availability, Gujarat is primarily a vegetarian state due to the high influence of Jain and Hindu traditions.",
       "id": 6,
       "img": "dhosa].jpg"
+    },
+    {
+      "name":"Idli",
+      "desc": "The vibrant and rich Gujarati cuisine in general consists of 4 regional cuisines- Kathiyawadi, Kutchi, Surti and Amdavadi. Each of these regions has a distinctive flavours associated with its local food that brings their own uniqueness to the Gujarati cuisine.  Each dish has a blend of flavours – sweet, sour, spicy. Despite having a coastline with abundance seafood availability, Gujarat is primarily a vegetarian state due to the high influence of Jain and Hindu traditions.",
+      "id": 8,
+      "img": "idli.jpg"
+    },
+    {
+      "name":"Sev usal",
+      "desc": "The vibrant and rich Gujarati cuisine in general consists of 4 regional cuisines- Kathiyawadi, Kutchi, Surti and Amdavadi. Each of these regions has a distinctive flavours associated with its local food that brings their own uniqueness to the Gujarati cuisine.  Each dish has a blend of flavours – sweet, sour, spicy. Despite having a coastline with abundance seafood availability, Gujarat is primarily a vegetarian state due to the high influence of Jain and Hindu traditions.",
+      "id": 9,
+      "img": "sev.jpg"
+    },
+    {
+      "name":"Dry Manchurian",
+      "desc": "The vibrant and rich Gujarati cuisine in general consists of 4 regional cuisines- Kathiyawadi, Kutchi, Surti and Amdavadi. Each of these regions has a distinctive flavours associated with its local food that brings their own uniqueness to the Gujarati cuisine.  Each dish has a blend of flavours – sweet, sour, spicy. Despite having a coastline with abundance seafood availability, Gujarat is primarily a vegetarian state due to the high influence of Jain and Hindu traditions.",
+      "id": 10,
+      "img": "dry.jpg"
     }
   ]
 }

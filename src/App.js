@@ -45,6 +45,7 @@ import ProductList from './Components/ProductList';
 import ProductDetails from './Components/ProductDetails';
 import BreadCrumb from './Components/BreadCrumb';
 import ProductComponent from './Components/ProductComponent';
+import Search from './Components/Search';
 function App() {
   return (
     <>
@@ -61,6 +62,7 @@ function App() {
 
           <Route exact path="/productlist/productdetails/:productId" element={<ProductDetails />} />
           <Route exact path="/logout" element={<Logout/>} />
+          <Route exact path="/search" element={<Search/>} />
 
         </Routes>
       </Router>
